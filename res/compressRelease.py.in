@@ -1,0 +1,45 @@
+import zipfile
+import sys
+
+version = "@EASY_CMAKE_SCRIPTS_VERSION@.@EASY_CMAKE_SCRIPTS_RELEASE_TYPE@"
+
+root = sys.argv[1]
+
+minimal_manual = [
+    "LICENSE",
+    "cmake/easyCMakeExampleBuilder.cmake",
+    "cmake/easyCMakeVersion.cmake"
+]
+
+minimal_install = [
+    "LICENSE",
+    "CMakeLists.txt",
+    "CMakePresets.json",
+    "cmake/Config.cmake.in",
+    "cmake/installConfig.cmake",
+    "cmake/easyCMakeExampleBuilder.cmake",
+    "cmake/easyCMakeVersion.cmake"
+]
+
+complete_install = [
+    "LICENSE",
+    "README.md",
+    "CMakeLists.txt",
+    "CMakePresets.json",
+    "cmake/Config.cmake.in",
+    "cmake/installConfig.cmake",
+    "cmake/easyCMakeExampleBuilder.cmake",
+    "cmake/easyCMakeVersion.cmake"
+]
+
+
+def release(filename, contents):
+    print("Creating " + filename)
+    with zipfile.ZipFile(filename + "." + version + ".zip", "w", compression=zipfile.ZIP_DEFLATED) as zip:
+        for file in contents:
+            zip.write(root + "/" + file)
+
+release("build/easyCMakeScripts.minimal.manual", minimal_manual)
+release("build/easyCMakeScripts.minimal.install", minimal_install)
+release("build/easyCMakeScripts.complete.install", complete_install)
+
