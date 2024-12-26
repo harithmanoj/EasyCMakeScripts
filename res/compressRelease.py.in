@@ -37,7 +37,7 @@ def release(filename, contents):
     print("Creating " + filename)
     with zipfile.ZipFile(filename + "." + version + ".zip", "w", compression=zipfile.ZIP_DEFLATED) as zip:
         for file in contents:
-            zip.write(root + "/" + file)
+            zip.write(root + "/" + file, file)
 
 release("build/easyCMakeScripts.minimal.manual", minimal_manual)
 release("build/easyCMakeScripts.minimal.install", minimal_install)
