@@ -21,7 +21,10 @@ endfunction(easyCMake_setupExampleConfig)
 # CompiledSources: {SRC}
 # LinkedLibraries: {DEP}
 # PreprocessorDefinitions:
+#   EASY_CMAKE_SCRIPT_EXAMPLE
+#   EX_{MODULE}_{TARGET}
 #   EXAMPLE_NAME = {MODULE}Ex_{TARGET}
+#   
 # Param:
 #   TARGET              Name of executable in case {USE_NAME_VERBATIM} or part of it else, if not present uses the name of first source file.
 #   MODULE              Module name for easy identification (use abbreviations).
@@ -66,16 +69,15 @@ function(easyCMake_configureExample)
     
     target_compile_definitions(${builderTargetName} PRIVATE EXAMPLE_NAME="${exampleName}")
     target_compile_definitions(${builderTargetName} PRIVATE EASY_CMAKE_SCRIPT_EXAMPLE)
+    set(defName "")
+    string(TOUPPER "EX_${CONFIG_EX_MODULE}_${CONFIG_EX_TARGET}" defName)
+    target_compile_definitions(${builderTargetName} PRIVATE ${defName})
 
     if(DEFINED CONFIG_EX_DEP)
-        foreach(X ${CONFIG_EX_DEP})
-            target_link_libraries(${builderTargetName} PUBLIC ${X}) 
-            message(VERBOSE "        Example ${CONFIG_EX_MODULE}> ${CONFIG_EX_TARGET}: linking to ${X}")       
-        endforeach(X ${CONFIG_EX_DEP})
+        target_link_libraries(${builderTargetName} PUBLIC ${CONFIG_EX_DEP})
     endif(DEFINED CONFIG_EX_DEP)
 
     if(CONFIG_EX_CREATE_PIPE)
-        message(VERBOSE "        Example ${CONFIG_EX_MODULE}> ${CONFIG_EX_TARGET}: creating piped output\n")
         file(APPEND "${CMAKE_BINARY_DIR}/run_ex_gen.bat" "\necho ${CONFIG_EX_MODULE} : ${CONFIG_EX_TARGET}\n")
         file(APPEND "${CMAKE_BINARY_DIR}/run_ex_gen.bat" "$<TARGET_FILE:${builderTargetName}> > ${CMAKE_CURRENT_SOURCE_DIR}/${CONFIG_EX_TARGET}.out.txt\n")
     endif(CONFIG_EX_CREATE_PIPE)
