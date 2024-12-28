@@ -40,7 +40,7 @@ def release(filename, contents):
         for file in contents:
             zip.write(root + "/" + file, file)
 
-if not os.path.exists("releaseZip"):
+if not os.path.exists(root + "/build/releaseZip"):
     os.makedirs(root + "/build/releaseZip")
 
 release(root + "/build/releaseZip/easyCMakeScripts.minimal.manual", minimal_manual)
