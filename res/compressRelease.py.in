@@ -1,9 +1,10 @@
 import zipfile
 import sys
+import os
 
 version = "@EASY_CMAKE_SCRIPTS_VERSION@.@EASY_CMAKE_SCRIPTS_RELEASE_TYPE@"
 
-root = sys.argv[1]
+root = "@CMAKE_CURRENT_SOURCE_DIR@"
 
 minimal_manual = [
     "LICENSE",
@@ -39,7 +40,10 @@ def release(filename, contents):
         for file in contents:
             zip.write(root + "/" + file, file)
 
-release("build/easyCMakeScripts.minimal.manual", minimal_manual)
-release("build/easyCMakeScripts.minimal.install", minimal_install)
-release("build/easyCMakeScripts.complete.install", complete_install)
+if not os.path.exists("releaseZip"):
+    os.makedirs(root + "/build/releaseZip")
+
+release(root + "/build/releaseZip/easyCMakeScripts.minimal.manual", minimal_manual)
+release(root + "/build/releaseZip/easyCMakeScripts.minimal.install", minimal_install)
+release(root + "/build/releaseZip/easyCMakeScripts.complete.install", complete_install)
 
