@@ -13,12 +13,18 @@ include(../../cmake/easyCMakeVersion.cmake)
 
 function(createTest)
     
-    set(single_val TARGET)
+    set(single_val TARGET STD)
     set(multi_val SRC DEP)
 
     cmake_parse_arguments(PARSE_ARGV 0 "TEST" "" "${single_val}" "${multi_val}")
 
     add_executable(${TEST_TARGET} ${TEST_SRC})
+
+    if(DEFINED TEST_STD)
+        target_compile_features(${TEST_TARGET} PRIVATE ${TEST_STD})
+    else()
+        target_compile_features(${TEST_TARGET} PRIVATE cxx_std_20)
+    endif(DEFINED TEST_STD)
 
     if(DEFINED TEST_DEP)
         foreach(X ${TEST_DEP})
@@ -62,5 +68,43 @@ easyCMake_targetDefineVersion(
     BUILD_CODE 1
     NAME_PREFIX VERSION_TEST
     SCOPE PUBLIC
+)
+
+createTest(
+    TARGET versionGen
+    SRC versionGen.cpp
+)
+
+easyCMake_generateVersionHeader(
+    TARGETS versionGen
+    SCOPE PRIVATE
+    NAME easyCMake
+    DESCRIPTION "Header for version test"
+    NAMESPACE easy
+    MAJOR 1
+    MINOR 5
+    REVISION 2
+    BUILD_CODE RELEASE
+    FULLSTRING "1.5.2.release"
+)
+
+createTest(
+    TARGET versionGenCustomPath
+    SRC versionGen2.cpp
+)
+
+easyCMake_generateVersionHeader(
+    TARGETS versionGenCustomPath
+    SCOPE PRIVATE
+    NAME "Easy CMake Scripts tester"
+    DESCRIPTION "EasyCMakeScripts Version generator test header"
+    NAMESPACE easy
+    MAJOR 1
+    MINOR 5
+    REVISION 2
+    BUILD_CODE RELEASE
+    FULLSTRING "1.5.2.release"
+    OUT_NAME "version2.h"
+    OUT_DIR easyCMake
 )
 
