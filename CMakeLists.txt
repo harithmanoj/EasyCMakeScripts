@@ -15,7 +15,6 @@ set(EASY_CMAKE_SCRIPTS_VERSION ${EASY_CMAKE_SCRIPTS_VERSION_MAJOR}.${EASY_CMAKE_
 set(EASY_CMAKE_SCRIPTS_RELEASE_TYPE "release")
 
 option(EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD "Build tests, enable warnings, etc" OFF)
-option(EASY_CMAKE_SCRIPTS_INSTALL_DOCS "Install Documentation files also" ON)
 
 include(CMakeDependentOption)
 

@@ -12,19 +12,6 @@ Latest Version 1.0.4
 - Only license file and relevant scripts.
 - Include the files in cmake scripts as necessary.
 
-### Minimal (Install)
-
-- Download and extract `minimal-install` release.
-- Installs relevant cmake scripts, config scripts, license file.
-- Generate config files, use `minimal-install` preset.
-- Install using `cmake --install <build_dir>`.
-- Import cmake script path using `find_package()`.
-- Use `include(easyCMakeExampleBuilder)` and `include(easyCMakeVersion)` for appropriate features.
-
-Or
-
-- Use as subdirectory.
-
 ### Complete (Install)
 
 - Download and extract `complete-install` release.

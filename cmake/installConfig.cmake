@@ -41,15 +41,14 @@ install(
     FILES
         "LICENSE"
     DESTINATION 
-        ${CMAKE_INSTALL_LIBDIR}/cmake/easyCMakeScripts
+        ${CMAKE_INSTALL_INFODIR}/cmake/easyCMakeScripts
 )
 
-if(EASY_CMAKE_SCRIPTS_INSTALL_DOCS)
-    install(
-        FILES
-            "README.md"
-        DESTINATION 
-            ${CMAKE_INSTALL_LIBDIR}/cmake/easyCMakeScripts
-    )
-endif(EASY_CMAKE_SCRIPTS_INSTALL_DOCS)
+install(
+    FILES
+        "README.md"
+    DESTINATION 
+        ${CMAKE_INSTALL_DOCDIR}/cmake/easyCMakeScripts
+    OPTIONAL
+)
 

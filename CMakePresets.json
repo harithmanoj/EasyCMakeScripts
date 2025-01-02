@@ -6,17 +6,7 @@
             "displayName": "Default Installable Preset",
             "description": "Default preset for installation",
             "cacheVariables": {
-                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "OFF",
-                "EASY_CMAKE_SCRIPTS_INSTALL_DOCS": "ON"
-            }
-        },
-        {
-            "name": "minimal-install",
-            "displayName": "Minimal Installable Preset",
-            "description": "Minimal preset for installation",
-            "cacheVariables": {
-                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "OFF",
-                "EASY_CMAKE_SCRIPTS_INSTALL_DOCS": "OFF"
+                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "OFF"
             }
         },
         {
@@ -24,8 +14,7 @@
             "displayName": "Subdirectory Preset",
             "description": "Preset suitable for use as subdirectory",
             "cacheVariables": {
-                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "OFF",
-                "EASY_CMAKE_SCRIPTS_INSTALL_DOCS": "OFF"
+                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "OFF"
             }
         },
         {
@@ -33,8 +22,7 @@
             "displayName": "Development Preset",
             "description": "Preset suitable for development build",
             "cacheVariables": {
-                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "ON",
-                "EASY_CMAKE_SCRIPTS_INSTALL_DOCS": "ON"
+                "EASY_CMAKE_SCRIPTS_DEVELOPMENT_BUILD": "ON"
             }
         }
     ]
