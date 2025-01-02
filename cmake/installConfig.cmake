@@ -12,6 +12,7 @@ install(
     FILES 
         "cmake/easyCMakeExampleBuilder.cmake" 
         "cmake/easyCMakeVersion.cmake"
+        "cmake/version.h.in"
     DESTINATION 
         ${CMAKE_INSTALL_LIBDIR}/cmake/easyCMakeScripts
 )

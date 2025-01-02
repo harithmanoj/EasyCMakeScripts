@@ -1,3 +1,10 @@
+# Part of Project EasyCMakeScripts
+# Copyright (C) Harith Manoj
+# Licensed under Apache License, Version 2.0
+# See http://www.apache.org/licenses/LICENSE-2.0    
+# for copy of license or attached LICENSE text file.
+# Date: 26 December 2024
+
 import zipfile
 import sys
 import os
@@ -9,7 +16,8 @@ root = "@CMAKE_CURRENT_SOURCE_DIR@"
 minimal_manual = [
     "LICENSE",
     "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake"
+    "cmake/easyCMakeVersion.cmake",
+    "cmake/version.h.in"
 ]
 
 minimal_install = [
@@ -19,7 +27,8 @@ minimal_install = [
     "cmake/Config.cmake.in",
     "cmake/installConfig.cmake",
     "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake"
+    "cmake/easyCMakeVersion.cmake",
+    "cmake/version.h.in"
 ]
 
 complete_install = [
@@ -30,7 +39,8 @@ complete_install = [
     "cmake/Config.cmake.in",
     "cmake/installConfig.cmake",
     "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake"
+    "cmake/easyCMakeVersion.cmake",
+    "cmake/version.h.in"
 ]
 
 
@@ -40,7 +50,7 @@ def release(filename, contents):
         for file in contents:
             zip.write(root + "/" + file, file)
 
-if not os.path.exists("releaseZip"):
+if not os.path.exists(root + "/build/releaseZip"):
     os.makedirs(root + "/build/releaseZip")
 
 release(root + "/build/releaseZip/easyCMakeScripts.minimal.manual", minimal_manual)
