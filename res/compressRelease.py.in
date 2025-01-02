@@ -20,17 +20,6 @@ minimal_manual = [
     "cmake/version.h.in"
 ]
 
-minimal_install = [
-    "LICENSE",
-    "CMakeLists.txt",
-    "CMakePresets.json",
-    "cmake/Config.cmake.in",
-    "cmake/installConfig.cmake",
-    "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake",
-    "cmake/version.h.in"
-]
-
 complete_install = [
     "LICENSE",
     "README.md",
