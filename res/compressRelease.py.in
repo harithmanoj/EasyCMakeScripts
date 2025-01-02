@@ -43,6 +43,5 @@ if not os.path.exists(root + "/build/releaseZip"):
     os.makedirs(root + "/build/releaseZip")
 
 release(root + "/build/releaseZip/easyCMakeScripts.minimal.manual", minimal_manual)
-release(root + "/build/releaseZip/easyCMakeScripts.minimal.install", minimal_install)
 release(root + "/build/releaseZip/easyCMakeScripts.complete.install", complete_install)
 
