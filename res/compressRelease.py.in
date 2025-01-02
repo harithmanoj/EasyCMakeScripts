@@ -16,7 +16,8 @@ root = "@CMAKE_CURRENT_SOURCE_DIR@"
 minimal_manual = [
     "LICENSE",
     "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake"
+    "cmake/easyCMakeVersion.cmake",
+    "cmake/version.h.in"
 ]
 
 minimal_install = [
@@ -26,7 +27,8 @@ minimal_install = [
     "cmake/Config.cmake.in",
     "cmake/installConfig.cmake",
     "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake"
+    "cmake/easyCMakeVersion.cmake",
+    "cmake/version.h.in"
 ]
 
 complete_install = [
@@ -37,7 +39,8 @@ complete_install = [
     "cmake/Config.cmake.in",
     "cmake/installConfig.cmake",
     "cmake/easyCMakeExampleBuilder.cmake",
-    "cmake/easyCMakeVersion.cmake"
+    "cmake/easyCMakeVersion.cmake",
+    "cmake/version.h.in"
 ]
 
 

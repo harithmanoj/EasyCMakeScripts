@@ -2,7 +2,7 @@
 
 Contains miscellaneous CMake scripts, functions etc.
 
-Latest Version 1.0.2
+Latest Version 1.0.4
 
 ## Getting Started
 
